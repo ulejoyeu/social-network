@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PostCommentComponent from './post-comment';
 
 const PostComponent = ({ imageSource }) => {
+    const [showComments, setShowComments] = useState(false);
+
+    const clickCommentHandler = () => {
+        setShowComments(!showComments);
+    }
+
     return (
         <div className="border border-slate-800 rounded-lg w-3/4 mt-4 mb-4 bg-white shadow-lg">
             <div className="border-b border-black flex">
@@ -27,7 +33,7 @@ const PostComponent = ({ imageSource }) => {
                 <div className="w-full p-4 flex justify-between">
                     <div className="text-slate-500 hover:underline">3 personnes aiment ça</div>
                     <div className="text-slate-500">
-                        <span className="hover:underline">17 commentaires</span>&nbsp;
+                        <span className="hover:underline" onClick={clickCommentHandler}>17 commentaires</span>&nbsp;
                         <span className="hover:underline">5 partages</span>
                     </div>
                 </div>
@@ -40,11 +46,16 @@ const PostComponent = ({ imageSource }) => {
                     <div className="w-1/3 p-4 rounded-br-lg text-center hover:bg-slate-100">PARTAGER</div>
                 </div>
             </div>
-            <div>
-                <PostCommentComponent />
-                <PostCommentComponent />
-                <PostCommentComponent />
-            </div>
+            {
+                showComments ?
+                (
+                    <div>
+                        <PostCommentComponent />
+                        <PostCommentComponent />
+                        <PostCommentComponent />
+                    </div>
+                ) : <></>
+            }
         </div>
     );
 };
