@@ -9,7 +9,7 @@ const PostComponent = ({ imageSource }) => {
     }
 
     return (
-        <div className="border border-slate-200 rounded-lg w-3/4 mt-4 mb-4 bg-white shadow-lg">
+        <div className="border border-slate-200 rounded-lg mt-4 mb-4 bg-white shadow-lg">
             <div className="border-b border-black flex">
                 <div className="w-48 flex justify-center items-center">
                     PHOTO
