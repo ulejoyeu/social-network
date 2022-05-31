@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,9 +13,9 @@ const NavbarComponent = () => {
                 </div>
             </div>
             <div className="w-1/3 flex">
-                <div className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500">ACCUEIL</div>
+                <Link className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500" to="/">ACCUEIL</Link>
                 <div className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500">GROUPES</div>
-                <div className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500">PROFIL</div>
+                <Link to="/mon-profil" className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500">MON PROFIL</Link>
             </div>
         </nav>
     )
