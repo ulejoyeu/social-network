@@ -8,7 +8,7 @@ const CreatePostModalComponent = ({ setShowModal }) => {
             className="fixed top-0 left-0 w-full h-full bg-black/80 flex items-center justify-center" 
         >
             <div
-                className="bg-white w-1/3 p-4 rounded-lg"
+                className="bg-white w-1/3 p-4 rounded-lg border border-slate-200 shadow-lg"
             >
                 <h1 className="text-3xl text-center font-bold">Créer une publication</h1>
                 <hr className="mt-4 mb-4"/>

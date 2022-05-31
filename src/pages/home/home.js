@@ -8,7 +8,7 @@ const HomePage = () => {
     return (
         <>
             <NavbarComponent />
-            <div className="flex w-full h-full bg-slate-200">
+            <div className="flex w-full h-full bg-slate-100">
                 <HomeSidebar />
                 <div className="w-3/4 flex items-center flex-col overflow-y-scroll">
                     <CreatePostCardComponent />
