@@ -10,7 +10,7 @@ const HomePage = () => {
             <NavbarComponent />
             <div className="flex w-full h-full bg-slate-100">
                 <HomeSidebar />
-                <div className="w-3/4 flex items-center flex-col overflow-y-scroll mt-8 mb-4">
+                <div className="w-3/4 flex items-center flex-col overflow-y-scroll pt-8 mb-4">
                     <div className="w-3/4">
                         <CreatePostCardComponent />
                         <PostComponent imageSource="https://cdn.pixabay.com/photo/2022/05/21/16/00/butterfly-7211806_1280.jpg" />
