@@ -1,8 +1,32 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import NavbarComponent from '../../components/navbar';
+import ProfileFriendsComponent from '../../components/profile/profile-friends.js';
+import ProfilePhotosComponent from '../../components/profile/profile-photos';
 import ProfilePostsComponent from '../../components/profile/profile-posts';
 
 const ProfilePage = () => {
+    let params = useParams();
+    let contentComponent = null;
+
+    console.log(params.tab);
+
+    if (params.tab === undefined) {
+        contentComponent = <ProfilePostsComponent />
+    }
+    else if(params.tab === "posts") {
+        contentComponent = <ProfilePostsComponent />
+    } else if(params.tab === "about") {
+        contentComponent = <p>About</p>
+    } else if(params.tab === "photos") {
+        contentComponent = <ProfilePhotosComponent />
+    } else if(params.tab === "friends") {
+        contentComponent = <ProfileFriendsComponent />
+    }
+
+    const styleTab = "p-4 w-1/4 text-center hover:bg-slate-200 rounded-full m-2"
+    const styleActiveTab = "p-4 w-1/4 text-center hover:bg-slate-200 rounded-full m-2 bg-slate-200"
+
     return (
         <>
             <NavbarComponent />
@@ -29,14 +53,14 @@ const ProfilePage = () => {
                 <hr/>
                 
                 <div className="flex w-2/3 mt-8 text-slate-800">
-                    <div className="p-4 w-1/4 text-center hover:bg-slate-200 rounded-full m-2 bg-slate-200">A propos</div>
-                    <div className="p-4 w-1/4 text-center hover:bg-slate-200 rounded-full m-2">Publications</div>
-                    <div className="p-4 w-1/4 text-center hover:bg-slate-200 rounded-full m-2">Amis</div>
-                    <div className="p-4 w-1/4 text-center hover:bg-slate-200 rounded-full m-2">Photos</div>
+                    <Link className={params.tab === undefined || params.tab === "posts" ? styleActiveTab : styleTab} to="/profile/posts">Publications</Link>
+                    <Link className={params.tab === "about" ? styleActiveTab : styleTab} to="/profile/about">A propos</Link>
+                    <Link className={params.tab === "friends" ? styleActiveTab : styleTab} to="/profile/friends">Amis</Link>
+                    <Link className={params.tab === "photos" ? styleActiveTab : styleTab} to="/profile/photos">Photos</Link>
                 </div>
 
                 <div className="flex w-2/3 mt-8 mb-8 flex-col">
-                    <ProfilePostsComponent />
+                    {contentComponent}
                 </div>
             </div>
         </>
