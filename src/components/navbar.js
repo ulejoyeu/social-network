@@ -14,7 +14,7 @@ const NavbarComponent = () => {
             </div>
             <div className="w-1/3 flex">
                 <Link className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500" to="/">ACCUEIL</Link>
-                <div className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500">GROUPES</div>
+                <Link className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500" to="/groups">GROUPES</Link>
                 <Link to="/profile" className="w-1/3 flex justify-center items-center text-white hover:bg-slate-500">MON PROFIL</Link>
             </div>
         </nav>
