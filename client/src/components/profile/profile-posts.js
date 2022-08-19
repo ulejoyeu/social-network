@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../context/user-context';
 import CreatePostCardComponent from '../create-post-card';
 import PostComponent from '../post';
 import ProfilePostsFriendsComponent from './posts/profile-posts-friends';

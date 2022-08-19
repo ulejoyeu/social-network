@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import NavbarComponent from '../../components/navbar';
 import ProfileFriendsComponent from '../../components/profile/profile-friends.js';
 import ProfilePhotosComponent from '../../components/profile/profile-photos';
 import ProfilePostsComponent from '../../components/profile/profile-posts';
+import { UserContext, useSession } from '../../context/user-context';
 
 const ProfilePage = () => {
+    const { user } = useSession();
+
     let params = useParams();
     let contentComponent = null;
 
@@ -42,7 +45,7 @@ const ProfilePage = () => {
                         src="https://vetref.fr/wp-content/uploads/2021/02/blank-profile-picture-973460_640.png"
                     />
                     <div className="flex flex-col p-4 ml-4 h-full justify-center">
-                        <div className="text-4xl"><b>John Doe</b></div>
+                        <div className="text-4xl"><b>{user.firstName} {user.lastName}</b></div>
                         <div className="text-slate-500">5 amis</div>
                         <div className="p-2 bg-blue-500 rounded-lg hover:bg-blue-600 text-white text-center mt-4">
                             Modifier le profil
