@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PostCommentComponent from './post-comment';
 
-const PostComponent = ({ imageSource }) => {
+const PostComponent = ({ post }) => {
+    // const [creator, setCreator] = useState(null);
     const [showComments, setShowComments] = useState(false);
+
+    // TODO
+    const getCreator = async () => {
+    }
+
+    // useEffect(() => {}, []);
 
     const clickCommentHandler = () => {
         setShowComments(!showComments);
@@ -15,17 +22,21 @@ const PostComponent = ({ imageSource }) => {
                     PHOTO
                 </div>
                 <div className="w-full p-4">
-                    <p><b>John Doe</b></p>
-                    <p className="text-slate-500">Il y a une heure</p>
+                    <p><b>Créateur du post</b></p>
+                    <p className="text-slate-500">{ post.createdAt }</p>
                 </div>
             </div>
 
             <div>
-                <div className="w-full">
-                    <img className="object-cover" src={imageSource} />
-                </div>
+                {
+                    post.image ? (
+                        <div className="w-full">
+                            <img className="object-cover" src={`http://localhost:5000/posts/getPostImage/${post.image}`} />
+                        </div>
+                    ) : <></>
+                }
                 <div className="p-4">
-                    <p>Vita est illis semper in fuga uxoresque mercenariae conductae ad tempus ex pacto atque, ut sit species matrimonii, dotis nomine futura coniunx hastam et tabernaculum offert marito, post statum diem si id elegerit discessura, et incredibile est quo ardore apud eos in venerem uterque solvitur sexus.</p>
+                    <p>{post.content}</p>
                 </div>
             </div>
 

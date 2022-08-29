@@ -4,7 +4,7 @@ import NavbarComponent from '../../components/navbar';
 import ProfileFriendsComponent from '../../components/profile/profile-friends.js';
 import ProfilePhotosComponent from '../../components/profile/profile-photos';
 import ProfilePostsComponent from '../../components/profile/profile-posts';
-import { UserContext, useSession } from '../../context/user-context';
+import { useSession } from '../../context/user-context';
 
 const ProfilePage = () => {
     const { user } = useSession();

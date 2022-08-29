@@ -49,7 +49,7 @@ const ProfilePostsFriendsComponent = () => {
                 {
                     firstFriends.map(
                         ({firstName, lastName, photoSrc}) => (
-                            <div className="p-2">
+                            <div className="p-2" key={`${lastName} ${firstName}`}>
                                 <img className="rounded-lg" src={photoSrc} />
                                 <p className="text-xs font-bold">{firstName} {lastName}</p>
                             </div>
